@@ -1,16 +1,18 @@
+
+import { ToastContainer, Slide, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Layout from "./Layout";
+import ScrollToTop from './ToTopScroll/ToTopScroll';
+
+
+
 export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
-  );
+	return (
+		<>
+			<Layout />
+
+			<ScrollToTop />
+			<ToastContainer transition={Slide} draggablePercent={60} />
+		</>
+	);
 };
