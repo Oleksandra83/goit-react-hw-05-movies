@@ -3,12 +3,13 @@ import axios from 'axios';
 axios.defaults.baseURL = `https://api.themoviedb.org/3`;
 axios.defaults.params = {
 	api_key: `effc343b47c620264dd2241b3bdd904f`,
+	language: 'en-US',
 	include_adult: false,
 };
 
-export const getTrendingMovies = async (page = 1, lng) => {
+export const getTrendingMovies = async (page = 1) => {
 	try {
-		const { data } = await axios.get('/trending/all/day', {
+		const { data } = await axios.get('/trending/movie/day', {
 			params: {
 				page,
 			},
@@ -19,11 +20,11 @@ export const getTrendingMovies = async (page = 1, lng) => {
 	}
 };
 
-export const getMoviesSearch = async (page = 1, query = '', lng) => {
+export const getMoviesSearch = async (page = 1, query = '', language) => {
 	try {
 		const urlParam = query
-			? `/search/movie?page=${page}&query=${query}&language=${lng}`
-			: `/movie/upcoming?page=${page}&language=${lng}`;
+			? `/search/movie?page=${page}&query=${query}&language=${language}`
+			: `/movie/upcoming?page=${page}&language=${language}`;
 		const { data } = await axios.get(urlParam);
 		return data;
 	} catch (error) {
@@ -31,12 +32,11 @@ export const getMoviesSearch = async (page = 1, query = '', lng) => {
 	}
 };
 
-export const getMoviesDetails = async (movieId, lng) => {
+export const getMovieDetails = async (movieId) => {
 	try {
 		const { data } = await axios.get(`/movie/${movieId}`, {
 			params: {
 				id: movieId,
-				language: lng,
 			},
 		});
 		return data;
@@ -45,12 +45,11 @@ export const getMoviesDetails = async (movieId, lng) => {
 	}
 };
 
-export const getMoviesCast = async (movieId, lng) => {
+export const getMoviesCast = async (movieId) => {
 	try {
 		const { data } = await axios.get(`/movie/${movieId}/credits`, {
 			params: {
 				id: movieId,
-				language: lng,
 			},
 		});
 		return data.cast;
@@ -59,12 +58,11 @@ export const getMoviesCast = async (movieId, lng) => {
 	}
 };
 
-export const getMoviesReviews = async (movieId, lng) => {
+export const getMoviesReviews = async (movieId) => {
 	try {
 		const { data } = await axios.get(`/movie/${movieId}/reviews`, {
 			params: {
 				id: movieId,
-				language: lng,
 			},
 		});
 		return data.results;

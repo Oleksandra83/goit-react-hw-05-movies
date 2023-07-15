@@ -9,6 +9,6 @@ export const Container = styled.div`
 	width: 1440px;
 	margin: 0 auto;
 	background: #e2f3e8;
-	color: #9e3403;
+	color: #2b2828;
 	transition: all 0.25s linear;
 `;

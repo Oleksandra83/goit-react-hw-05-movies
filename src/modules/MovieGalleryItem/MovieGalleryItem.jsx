@@ -1,7 +1,7 @@
 import React from "react";
 import { MovieListItem, MoviePoster, MovieTitle } from "./MovieGalleryItem.styled";
 import { Link } from "react-router-dom";
-import NoPoster from "../../images/no-movie-poster.png";
+import NoPoster from "../../images/No_movie_poster.png";
 import PropTypes from "prop-types";
 
 export const MovieGalleryItem = ({
@@ -10,8 +10,9 @@ export const MovieGalleryItem = ({
 		original_title,
 		poster_path,
 		title,
-		name},
-	state
+		name,
+	},
+	state,
 	}) => {
 
 	return (
@@ -33,8 +34,11 @@ export const MovieGalleryItem = ({
 };
 
 MovieGalleryItem.propTypes = {
-	id: PropTypes.number.isRequired,
-	original_title: PropTypes.string.isRequired,
-	poster_path: PropTypes.string,
-	title: PropTypes.string.isRequired,
-}
+	movie: PropTypes.shape({
+		id: PropTypes.number.isRequired,
+		original_title: PropTypes.string.isRequired,
+		poster_path: PropTypes.string,
+		title: PropTypes.string.isRequired,
+	}).isRequired,
+	state: PropTypes.objectOf(PropTypes.object).isRequired,
+};

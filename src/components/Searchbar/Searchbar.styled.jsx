@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Shearch = styled.div`
+export const SearchForm = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -17,17 +17,6 @@ export const Shearch = styled.div`
 	backdrop-filter: blure(2px);
 	overflow: hidden;
 `;
-
-// export const SearchForm = styled.form`
-// 	display: flex;
-// 	align-items: center;
-// 	width: 100%;
-// 	max-width: 400px;
-// 	border-radius: 3px;
-// 	overflow: hidden;
-// 	background-color: rgb(255, 255, 255);
-// 	box-shadow: 4px 1px 4px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
-// `;
 
 export const SearchFormBtn = styled.button`
 	display: inline-flex;

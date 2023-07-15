@@ -57,4 +57,10 @@ export const MovieTitle = styled.h2`
 	text-align: center;
 	font-size: 14px;
 	font-weight: 700;
-`
+`;
+
+export const GenresBlock = styled.div`
+	position: absolute;
+	bottom: 48px;
+	left: 10px;
+`;

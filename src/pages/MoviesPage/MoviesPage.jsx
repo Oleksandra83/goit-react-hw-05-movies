@@ -12,7 +12,6 @@ const MoviesPage = () => {
 	const [filteredMovies, setFilteredMovies] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(false);
-	// const [data, setData] = useState(null);
 	const [searchParams, setSearchParams] = useSearchParams({
 		page: 1,
 		query: '',
@@ -30,7 +29,6 @@ const MoviesPage = () => {
 	useEffect(() => {
 		(async () => {
 			try {
-				// setData(null);
 				const data = await getMoviesSearch(page, query);
 				setMovies(data.results);
 			} catch (error) {
@@ -60,13 +58,14 @@ const MoviesPage = () => {
 				<Searchbar value={query} onChange={handleSearchChange} />
 				{isLoading && <Loader />}
 				{error && <ErrorView message="I didn`t find movies. Please try again" />}
-				{/* {data === null && (
-					<ErrorView message="We don't have movies by query:" />
-				)} */}
 				{!error && query && !isLoading && (
 					<MovieGallery movies={filteredMovies} />
 				)}
 			</MoviesContainer>
+			{!movies.length && query &&
+				<div style={{ padding: '24px', textAlign: 'center' }}>
+					<p>We don't have movies by query: { query }</p>
+				</div>}
 		</>
 	);
 };

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Title } from "components/Title/Title";
 import { MovieGallery } from "modules/MovieGallery/MovieGallery";
@@ -11,8 +11,6 @@ const HomePage = () => {
 	const [trendingMovies, setTrendingMovies] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(false);
-
-
 
 	useEffect(() => {
 		(async () => {
@@ -38,8 +36,8 @@ const HomePage = () => {
 		<HomeContainer>
 			{isLoading && <Loader />}
 			{error && <ErrorView message="Oops, mistake... Please try again" />}
-				<Title title="Trending today" />
-				<MovieGallery movies={trendingMovies ?? []} />
+			<Title title="Trending today" />
+			<MovieGallery movies={trendingMovies ?? []} />
 		</HomeContainer>
 	);
 };
